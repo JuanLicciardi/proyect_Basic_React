@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Row, Col, Button, Toast } from "react-bootstrap";
-import './style.css';
+import { useShow } from "../../hook/useShow";
 
 
 export const ShowHideMessage = () => {
@@ -24,18 +24,13 @@ export const ShowHideMessage = () => {
                 className="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
-              <small>11 mins ago</small>
+              <strong className="me-auto">React - Bootstrap</strong>
+              <small>Primer Clase</small>
             </Toast.Header>
             <Toast.Body>
-              Woohoo, you're reading this text in a Toast!
+              Curso React
             </Toast.Body>
           </Toast>
-        </Col>
-        <Col xs="12"  className="mt-5 bg-primary text-center text-white" >
-            <div className="mi">
-                hola algo pasa
-            </div>
         </Col>
       </Row>
     </Container>
