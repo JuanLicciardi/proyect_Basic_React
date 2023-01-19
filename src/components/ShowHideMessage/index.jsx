@@ -1,22 +1,23 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { Container, Row, Col, Button, Toast } from "react-bootstrap";
 import './style.css';
 
 
 export const ShowHideMessage = () => {
 
-    
+  const [show, setShow] = useState(false);
+  const handleShowMessage = () => setShow(!show)
 
 
 
   return (
     <Container>
-      <Row>
-        <Col xs={12} md={{span:6, offset:3 }}  className="mi text-center">
-          <Button  className="mb-2">
-            Toggle Toast <strong>with</strong> Animation
+      <Row className="mt-5" >
+        <Col xs={12} lg={{span:6, offset:3 }}  className="mi text-center">
+          <Button  className="mb-2" onClick={handleShowMessage}>
+            {show ? 'Ocultar' :'Mostrar'} Mensaje 
           </Button>
-          <Toast >
+          <Toast show={show} onClose={handleShowMessage} className="m-auto">
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
