@@ -18,12 +18,12 @@ export const Header = () => {
                 Show / Hide Message
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/">
-                Stopwatch / Timmer
+              <NavDropdown.Item as={Link} to="/progressBar">
+                Progress Bar
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/">
-                Progress Bar
+                Stopwatch / Timmer
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/">
@@ -37,6 +37,10 @@ export const Header = () => {
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/">
                 Task Manager with validations
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/practice/showHideMessage">
+                Show / Hide Message
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/">
