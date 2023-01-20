@@ -1,14 +1,12 @@
-import { useState } from "react";
+
 import { Container, Row, Col, Button, Toast } from "react-bootstrap";
 import { useShow } from "../../hook/useShow";
 
 
 export const ShowHideMessage = () => {
 
-  const [show, setShow] = useState(false);
-  const handleShowMessage = () => setShow(!show)
-
-
+  
+  const {show , handleShowMessage} = useShow(false)
 
   return (
     <Container>

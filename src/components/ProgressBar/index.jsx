@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Container, Col, Row, Card, Button, ProgressBar as BarProgress, Form } from "react-bootstrap";
 
 export const ProgressBar = () => {
 
-    const [now, setNow] = useState (90);
-    const handleDownload = () => {
+    const [now, setNow] = useState (0);
+    const inputRef = useRef(null)
 
+    const handleDownload = () => {
+        const valueInput = inputRef.current.value
+        const interval = setInterval(()=>{
+            setNow ((now) => {
+                if(now === +valueInput){
+                    clearInterval(interval)
+                    return now
+                }
+                return now + 1
+            })
+        }, 1000)
     }
 
     return(
@@ -17,6 +28,7 @@ export const ProgressBar = () => {
                             <Card.Title>Progress Bar</Card.Title>
                             <BarProgress animated now={now} label={`${now}%`} variant="danger" />
                             <Form.Control
+                                ref={inputRef}
                                 placeholder="Ingrese un valor"
                                 className="my-3"
                             >
@@ -25,7 +37,8 @@ export const ProgressBar = () => {
 
 
                             
-                            <Button variant="primary">Go somewhere </Button>
+                            <Button variant="primary" onClick={handleDownload} >Descargar </Button>
+                            <Button variant="danger" className="m-2"  /* onClick={} */ >Reiniciar </Button>
                         </Card.Body>
                     </Card>
                 </Col>
