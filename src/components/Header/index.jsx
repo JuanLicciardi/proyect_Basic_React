@@ -43,9 +43,14 @@ export const Header = () => {
                 Show / Hide Message
               </NavDropdown.Item>
               <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/practice/progressBar">
+                ProgressBar              
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/">
                 ...
               </NavDropdown.Item>
+
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
