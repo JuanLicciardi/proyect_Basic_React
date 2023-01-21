@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button, Toast } from "react-bootstrap";
 import { useShow } from "../../hook/useShow";
-import './styles.modules.css'
+import './styles.module.css'
 
 
 export const ShowHideMessage = () => {

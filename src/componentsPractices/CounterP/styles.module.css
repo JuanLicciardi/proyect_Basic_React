@@ -15,7 +15,7 @@
 .titulo{
     width: 90%;
     text-align: center;
-    color: blue;
+    color: rgb(255, 0, 157);
     font-size: 26px;
 }
 
@@ -53,5 +53,10 @@ ul li {
 hr {
     margin: 3px 0;
     padding: 0;
+}
+
+
+.container{
+    border: 2px solid red;
 }
 

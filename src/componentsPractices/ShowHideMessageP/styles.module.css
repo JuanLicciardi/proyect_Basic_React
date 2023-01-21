@@ -1,0 +1,58 @@
+
+.BodyContainer {
+    border: 2px solid gray;
+    height: 500px ;
+}
+
+.rowPrimary {
+    display: flex;
+    justify-content: center;
+    border: 2px solid gray;
+    border-radius: 20px 0 20px 0;
+    box-shadow: 2px 2px 12px blue;
+    margin: 15px 5px; 
+}
+
+.titulo{
+    width: 90%;
+    text-align: center;
+    color: rgb(15, 167, 27);
+    font-size: 26px;
+}
+
+
+.boxInfo {
+    background:rgb(162, 214, 230);
+    border: 2px solid rgb(26, 152, 184);
+    border-radius: 5px;
+    box-shadow: 5px 10px 10px 2px rgb(142, 142, 218);
+
+}
+
+.tituloExplicativo {
+    text-align: left;
+    color: blue;
+}
+
+.parrafo {
+    text-align: justify;
+    font-size: 14px;
+}
+
+ul {
+    margin-left: 5px;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    margin: 3px 0;
+    padding: 0;
+}
+
