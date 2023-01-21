@@ -26,7 +26,7 @@ export const Header = () => {
                 Stopwatch / Timmer
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/">
+              <NavDropdown.Item as={Link} to="/taskManager">
                 Task Manager
               </NavDropdown.Item>
             </NavDropdown>
@@ -44,7 +44,11 @@ export const Header = () => {
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/practice/progressBar">
-                ProgressBar              
+                Progress Bar              
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/practice/stopWatchTimer">
+                Stop Watch Timer
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/">
