@@ -1,15 +1,15 @@
 import { Container, Row, Col, Button, Toast } from "react-bootstrap";
 import { useShow } from "../../hook/useShow";
-import './styles.module.css'
+import style from './styles.module.css'
 
 
 export const ShowHideMessage = () => {
 
   const {show,handleShowMessage} = useShow(false);
   return (
-    <Container className="BodyContainer" >
-      <Row xs={6} className="rowPrimary">
-        <h1 className="titulo" >PRACTICA SHOW / HIDE MESSAGE</h1>
+    <Container className={style.BodyContainer} >
+      <Row xs={6} className={style.rowPrimary}>
+        <h1 className={style.titulo} >PRACTICA SHOW / HIDE MESSAGE</h1>
       </Row>
       <Row className="mt-5 ">
         <Col xs={6} 
@@ -40,7 +40,7 @@ export const ShowHideMessage = () => {
         </Col>
         <Col xs={5} 
              md={{span:4, offset:1 }}  
-             className="text-center m-4 boxInfo"
+             className={`text-center m-4 ${style.boxInfo}`}
         > 
           <div className="boxInfo_1">
             <h4 className="tituloExplicativo"  >Consigna:</h4>

@@ -47,20 +47,20 @@ export const Counter = () => {
 
     return (
         <Container className={style.BodyContainer} >
-          <Row xs={6} className="rowPrimary">
+          <Row xs={6} className={style.rowPrimary}>
             <h1 className={style.titulo} >PRACTICA CREATE COUNTER</h1>
           </Row>
-          <Row className="mt-5 ">
+          <Row className="mt-5">
             <Col xs={6} 
                  md={{span:5, offset:1 }}  
-                 className="text-center "
+                 className="text-center mt-5 "
             >
               <div className={style.container} >
-                  <h1>{counter}</h1>
+                  <h1 className={style.textCounter} > {counter}</h1>
               </div>
               <ButtonGroup aria-label="Basic example" >
-                <Button variant="success" onClick={add} >Aumenar</Button>
-                <Button variant="danger" onClick={() => reset()} disabled={counter ? false : true} >Reiniciar</Button>
+                <Button variant="success" onClick={add}  >Aumenar</Button>
+                <Button variant="danger" className="mx-5" onClick={() => reset()} disabled={counter ? false : true} >Reiniciar</Button>
                 <Button variant="primary" onClick={subtract} >Disminuir</Button>
               </ButtonGroup>
             </Col>
@@ -70,7 +70,8 @@ export const Counter = () => {
             > 
               <div className="boxInfo_1">
                 <h4 className={style.tituloExplicativo} >Consigna:</h4>
-                <p className={style.parrafo} >Implementación de un botón para mostrar/ocultar un mensaje.</p>
+                <p className={style.parrafo} >Implementación de un botón para sumar, un botón para reiniciar y un botón para restar
+                 valores de un contador numerico decimal.</p>
                 <hr />
                 <h4 className={style.tituloExplicativo} >Usaremos:</h4>
                 <ul>

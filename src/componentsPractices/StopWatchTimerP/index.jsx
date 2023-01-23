@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Container, Row, Col, Card, ButtonGroup, Button } from "react-bootstrap";
+import style from './styles.module.css'
 
 
 const oneOrTwoNum = (num) => num > 9 ? num : `0${num}`
@@ -57,18 +58,19 @@ export const StopWatchTimer = () => {
   }
 
     return (
-      <Container className="BodyContainer mt-5"  >
-        <Row xs={6} className="rowPrimary">
-          <h1 className="titulo" >PRACTICA STOP WATCH TIMER</h1>
+      <Container className={`${style.BodyContainer} mt-5`}  >
+        <Row xs={6} className={style.rowPrimary}>
+          <h1 className={style.titulo} >PRACTICA STOP WATCH TIMER</h1>
         </Row>
         <Row className="mt-5" >
         <Col xs={6} lg={{span:5, offset:1 }}  className="mi text-center mt-4">
           <ButtonGroup aria-label="Basic example" className="d-block my-2">
             <Button variant="outline-success" onClick={handleStart} >Comenzar</Button>
-            <Button variant="outline-danger" onClick={handleStop}  >Detener</Button>
+            <Button variant="outline-danger" className="mx-4" onClick={handleStop}  >Detener</Button>
             <Button variant="outline-dark" onClick={handleReset}  >Reiniciar</Button>
           </ButtonGroup>
           <ButtonGroup aria-label="Basic example">
+            <Button className="bg-primary" >Velocidad</Button>
             <Button variant="outline-dark" className={velocity === 1 && "active"} onClick={()=>handleVelocity(1)}>Min</Button>
             <Button variant="outline-dark" className={velocity === 2 && "active"} onClick={()=>handleVelocity(20)} >x2</Button>
             <Button variant="outline-dark" className={velocity === 4 && "active"} onClick={()=>handleVelocity(40)} >x4</Button>
@@ -88,15 +90,15 @@ export const StopWatchTimer = () => {
           </Col>
           <Col xs={5} 
              md={{span:4, offset:1 }}  
-             className="text-center m-4 boxInfo"
+             className={`text-center m-4 ${style.boxInfo}`}
           > 
-            <div className="boxInfo_1">
-              <h4 className="tituloExplicativo"  >Consigna:</h4>
-              <p className="parrafo" >Implementación de un cronómetro / temporizador con <strong>HORAS, MINUTOS y SEGUNDOS</strong>,
+            <div className={style.boxInfo_1}>
+              <h4 className={style.tituloExplicativo}  >Consigna:</h4>
+              <p className={style.parrafo} >Implementación de un cronómetro / temporizador con <strong>HORAS, MINUTOS y SEGUNDOS</strong>,
               con los botones de <strong>START, STOP y RESET</strong>.
               Tiene un velocímetro con 5 velocidades.</p>
               <hr />
-              <h4 className="tituloExplicativo" >Usaremos:</h4>
+              <h4 className={style.tituloExplicativo} >Usaremos:</h4>
               <ul>
               <li>Hook useState</li>
               <hr />
