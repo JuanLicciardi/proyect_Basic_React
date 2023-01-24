@@ -1,22 +1,39 @@
 import { Button, Form } from "react-bootstrap";
 
-export const FormTask = ({onChange, inputsValues}) => {
+export const FormTask = ({onChange, inputsValues,onSubmit,refForm}) => {
   return (
-    <Form>
+    <Form onSubmit={onSubmit} ref={refForm}>
       <Form.Group className="mb-3" >
         <Form.Label>Titulo</Form.Label>
-        <Form.Control type="text" placeholder="Ingresar el titulo" onChange={onChange}  />
+        <Form.Control 
+          type="text" 
+          placeholder="Ingresar el titulo"
+          value={inputsValues.title} 
+          onChange={onChange}
+          name= "title"  
+        />
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>Imagen</Form.Label>
-        <Form.Control type="text" placeholder="Ingresar una URL " onChange={onChange} />
+        <Form.Control 
+          type="text" 
+          placeholder="Ingresar una URL"
+          value={inputsValues.img} 
+          onChange={onChange}
+          name="img" 
+        />
       </Form.Group>
 
 
       <Form.Group className="mb-3" >
         <Form.Label>Descripción</Form.Label>
-        <Form.Control as={'textarea'} placeholder="Ingrese descripción" onChange={onChange} />
+        <Form.Control 
+          as={'textarea'} 
+          placeholder="Ingrese descripción" 
+          value={inputsValues.description}
+          onChange={onChange}
+          name="description" />
       </Form.Group>
 
       <Button variant="success" type="submit" className="mx-2">

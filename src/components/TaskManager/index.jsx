@@ -1,35 +1,30 @@
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import { FormTask } from "./Form"
-import { useState } from "react"
 import { useForm } from "../../hook/useForm"
+import { useRef } from "react"
 
 export const TaskManager = () =>{
-
-    const [inputValues, setInputValues] = useState({});
-
-    const [state,setState,handleChange, reset] = useForm()
+    const refForm = useRef(null);
+    const [inputsValues,setInputValues,handleChangeInputsValue, reset] = useForm({},refForm)
     
-    const handleChangeInputsValue = ({target}) => {
-        setInputValues({
-            ...inputValues,
-            [target.name]:target.value
-        })
-    }
-
     const handlesubmit = (e) =>{
-        e.preventDefault()
-
+        e.preventDefault();
+        reset();
     }
 
    return (
     <Container className="mt-5" >
         <Row>
             <Col sm={12} lg={3} >
-                <FormTask  />
+                <FormTask 
+                    onChange={handleChangeInputsValue}
+                    inputsValues={inputsValues}
+                    onSubmit ={handlesubmit}
+                    refForm={refForm}
+                />
             </Col>
             <Col sm={12} lg={9} >
-                <FormTask onChange={handleChangeInputsValue} inputsValues={inputValues} />
             </Col>
         </Row>
     </Container>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useForm = (initialState) => {
+export const useForm = (initialState, refForm) => {
     const [state, setState] = useState(initialState);
 
     const handleChange = ({target:{name,value}}) => 
@@ -10,6 +10,7 @@ export const useForm = (initialState) => {
         });
 
         const reset = () => {
+            refForm.current?.reset() 
             setState(initialState)
         }
 
