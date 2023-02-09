@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap"
 import { FormTask } from "./Form"
 import { useForm } from "../../hook/useForm"
 import { useRef } from "react"
+import { CardItem } from "./CardItem"
 
 export const TaskManager = () =>{
     const refForm = useRef(null);
@@ -25,6 +26,7 @@ export const TaskManager = () =>{
                 />
             </Col>
             <Col sm={12} lg={9} >
+                <CardItem/>
             </Col>
         </Row>
     </Container>

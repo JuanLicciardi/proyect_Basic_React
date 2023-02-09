@@ -31,7 +31,6 @@ export const FormTask = ({onChange, inputsValues,onSubmit,refForm}) => {
         <Form.Control 
           as={'textarea'} 
           placeholder="Ingrese descripción" 
-          value={inputsValues.description}
           onChange={onChange}
           name="description" />
       </Form.Group>
