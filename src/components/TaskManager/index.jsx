@@ -1,16 +1,44 @@
-import React from "react"
+import React, { useReducer } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import { FormTask } from "./Form"
 import { useForm } from "../../hook/useForm"
 import { useRef } from "react"
 import { CardItem } from "./CardItem"
+import { useState } from "react"
+
+
+const generateId = () => Math.random().toString(36).substring(2,100)
+
+const taskReducer = (state, action) => {
+    switch (action.type){
+        case 'ADD':
+            const newTask = {
+                ...action.payload,
+                id: generateId(),
+                active: false,
+                completed:false,
+            }
+            console.log('PAYLOAD :', newTask);
+            return [...state, action.payload]
+          
+        default:
+            break;
+    }
+}
+
+
 
 export const TaskManager = () =>{
     const refForm = useRef(null);
     const [inputsValues,setInputValues,handleChangeInputsValue, reset] = useForm({},refForm)
-    
+   // const [tasks, setTasks] = useState([])
+
+    const [tasks, dispatch] = useReducer(taskReducer,[])
+
     const handlesubmit = (e) =>{
         e.preventDefault();
+        dispatch({type:"ADD",payload:inputsValues})
+      //  setTasks([...tasks,inputsValues]); 
         reset();
     }
 
@@ -26,8 +54,12 @@ export const TaskManager = () =>{
                 />
             </Col>
             <Col sm={12} lg={9} >
-                <CardItem/>
-            </Col>
+             { tasks.map((task, index) => {
+                   return <CardItem  key={index} task = {task} />
+                    } )
+                }
+ 
+             </Col>
         </Row>
     </Container>
    )

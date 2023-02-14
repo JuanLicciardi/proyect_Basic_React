@@ -1,19 +1,34 @@
-import { Button, Card, Form } from "react-bootstrap"
+import { Button, Card, Form, Toast, Image } from "react-bootstrap"
 
 
 
-export const CardItem = () => {
+export const CardItem = ({task}) => {
   return (
-    <Card style={{width:'18rem'}}>
-        <Card.Img variant="top" src="holde.js/100pxx180" />
-        <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-                algun texto
-            </Card.Text>
-            <Form.Control as={'checkbox'}/>
-            <Button variant="primary"> Go Somewhere</Button>
-        </Card.Body>
-    </Card>
+
+    <Toast>
+      <Toast.Header>
+          <img src="holder.js/20x20?text=%20" alt="" className="rounded me-2" />
+          <strong className="me-auto">{task.title}</strong>
+          <small>11 mins ago</small>
+      </Toast.Header>
+      <Toast.Body>
+        <Image
+          fluid
+          src={task.img}
+          alt=""
+        />
+        <p className="ps-2 d-inline-block">{task.description}</p>
+        <Form.Group className="m-3 d-inline-flex gap-1" >
+            <Form.Check name="active" id="active"/>
+            <Form.Label htmlFor="active" >Pendiente</Form.Label>
+        </Form.Group>
+        <Form.Group className="m-3 d-inline-flex gap-1" >
+            <Form.Check name="completed" id="completed"/>
+            <Form.Label htmlFor="completed" >Completado</Form.Label>
+        </Form.Group>
+        <Button variant="outline-dark"> Editar</Button>
+      </Toast.Body>
+
+    </Toast>
   )
 }
