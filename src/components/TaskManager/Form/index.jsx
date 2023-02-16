@@ -1,6 +1,6 @@
 import { Button, Form } from "react-bootstrap";
 
-export const FormTask = ({onChange, inputsValues,onSubmit,refForm}) => {
+export const FormTask = ({onChange, inputsValues,onSubmit,refForm,action}) => {
   return (
     <Form onSubmit={onSubmit} ref={refForm}>
       <Form.Group className="mb-3" >
@@ -35,8 +35,8 @@ export const FormTask = ({onChange, inputsValues,onSubmit,refForm}) => {
           name="description" />
       </Form.Group>
 
-      <Button variant="success" type="submit" className="mx-2">
-        Agregar
+      <Button variant={action === "CREATE" ? "success" : "info"} type="submit" className="mx-2">
+        {action === "CREATE" ? "Crear" : "Actualizar"}
       </Button>
       <Button variant="danger" type="reset">
         Reiniciar

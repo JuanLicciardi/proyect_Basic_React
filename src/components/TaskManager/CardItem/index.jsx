@@ -2,14 +2,14 @@ import { Button, Card, Form, Toast, Image } from "react-bootstrap"
 
 
 
-export const CardItem = ({task}) => {
+export const CardItem = ({task, onUpdate}) => {
   return (
 
     <Toast>
       <Toast.Header>
           <img src="holder.js/20x20?text=%20" alt="" className="rounded me-2" />
           <strong className="me-auto">{task.title}</strong>
-          <small>11 mins ago</small>
+          <small>11 mins ago </small>
       </Toast.Header>
       <Toast.Body>
         <Image
@@ -26,7 +26,7 @@ export const CardItem = ({task}) => {
             <Form.Check name="completed" id="completed"/>
             <Form.Label htmlFor="completed" >Completado</Form.Label>
         </Form.Group>
-        <Button variant="outline-dark"> Editar</Button>
+        <Button variant="outline-dark" onClick={() => onUpdate(task.id)} > Editar</Button>
       </Toast.Body>
 
     </Toast>

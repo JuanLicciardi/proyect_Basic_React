@@ -19,10 +19,21 @@ const taskReducer = (state, action) => {
                 completed:false,
             }
             console.log('PAYLOAD :', newTask);
-            return [...state, action.payload]
+            return [...state, newTask];
+        case "UPDATE":
+            const taskToUpdate = action.payload
+            const tasksUpdate = state.map((task)=>{
+                if(task.id === taskToUpdate.id) {
+                    return {
+                        ...task,
+                        ...taskToUpdate
+                    }
+                }
+            })
+            return tasksUpdate;
           
         default:
-            break;
+            return state;
     }
 }
 
@@ -31,15 +42,32 @@ const taskReducer = (state, action) => {
 export const TaskManager = () =>{
     const refForm = useRef(null);
     const [inputsValues,setInputValues,handleChangeInputsValue, reset] = useForm({},refForm)
-   // const [tasks, setTasks] = useState([])
+    const [action, setAction] = useState("CREATE");
+    // const [tasks, setTasks] = useState([])
 
     const [tasks, dispatch] = useReducer(taskReducer,[])
 
     const handlesubmit = (e) =>{
         e.preventDefault();
-        dispatch({type:"ADD",payload:inputsValues})
+
+        if(action === "CREATE"){
+            dispatch({type:"ADD",payload:inputsValues})
+        }
+
+        if(action === "UPDATE"){
+            dispatch({type:"UPDATE",payload:inputsValues})
+        }
+
+       
       //  setTasks([...tasks,inputsValues]); 
         reset();
+    }
+
+    const handleUpdate = (id) => {
+        console.log('Editando algo ....  ' + id)
+        const taskFound = tasks.find((task)=> task.id === id )
+        setInputValues(taskFound);
+        setAction("UPDATE")
     }
 
    return (
@@ -51,11 +79,12 @@ export const TaskManager = () =>{
                     inputsValues={inputsValues}
                     onSubmit ={handlesubmit}
                     refForm={refForm}
+                    action = {action}
                 />
             </Col>
             <Col sm={12} lg={9} >
-             { tasks.map((task, index) => {
-                   return <CardItem  key={index} task = {task} />
+             { tasks.map((task) => {
+                   return <CardItem  key={task.id} task = {task} onUpdate = {handleUpdate}/>
                     } )
                 }
  
